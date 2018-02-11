@@ -17,13 +17,17 @@ def color_thresh(img, rgb_thresh=(0, 0, 0)):
     # Apply the thresholds for RGB and assign 1's 
     # where threshold was exceeded
     # Return the single-channel binary image
+    for (x, y) in np.ndindex(img.shape[:2]):
+        color = np.average(list(map(lambda ch,mask: 0 if ch<=mask else 255, img[x-1,y-1,:], rgb_thresh)))
+        color_select[x,y] = color
+
     return color_select
     
 # Define color selection criteria
 ###### TODO: MODIFY THESE VARIABLES TO MAKE YOUR COLOR SELECTION
-red_threshold = 0
-green_threshold = 0
-blue_threshold = 0
+red_threshold = 200
+green_threshold = 200
+blue_threshold = 175
 
 ######
 rgb_threshold = (red_threshold, green_threshold, blue_threshold)
