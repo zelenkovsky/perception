@@ -4,7 +4,8 @@ MAINTAINER Dmitry Zelenkovsky <Dmitry.Zelenkovsky@gmail.com>
 
 RUN pip install numpy \
                 pillow \
-                matplotlib
+                matplotlib \
+                opencv-python
 
 WORKDIR /opt/perception
 
