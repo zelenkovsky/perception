@@ -47,3 +47,17 @@ def perspect_transform(img, src, dst):
     warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))
     # Return the result
     return warped
+
+def rover_coords(binary_img):
+    # TODO: fill in this function to 
+    # Calculate pixel positions with reference to the rover 
+    # position being at the center bottom of the image.
+
+    ypos, xpos = binary_img.nonzero()
+
+    # Calculate pixel positions with reference to the rover position being at the 
+    # center bottom of the image.  
+    x_pixel = -(ypos - binary_img.shape[0]) 
+    y_pixel = -(xpos - binary_img.shape[1]/2)
+
+    return x_pixel, y_pixel
